@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../common/service/api.service';
-import { format } from 'url';
 
 @Component({
   selector: 'app-first-page',
@@ -19,8 +18,8 @@ export class FirstPageComponent implements OnInit {
   moveToSecondPage() {
     this.router.navigateByUrl('/second-page');
   }
-  onSubmit(event) {
-    console.log('vent', this.loginDetails );
+  onSubmit() {
+    // console.log('vent', this.loginDetails );
     this.apiService.getServerData(  this.loginDetails).subscribe((res) => { console.log(res); });
     this.loginDetails = {};
   }

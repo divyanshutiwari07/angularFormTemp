@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { config } from '../config';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +11,11 @@ export class ApiService {
 
   getServerData(obj) {
     console.log('api service');
-    return this.http.post('http://localhost:2000/testing', obj);
+    return this.http.post(config.TESTING_URL, obj);
   }
   getSavedData() {
     console.log('api service');
-    return this.http.get('http://localhost:2000/all');
+    return this.http.get(config.ALL_DATA_URL);
   }
   
 }

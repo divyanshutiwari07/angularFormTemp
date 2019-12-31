@@ -18,12 +18,9 @@ app.post('/testing', (req, res) => {
   console.log(req.body);
   if (req.body) {
     database.push(req.body);
-    console.log(database);
+    // console.log(database);
   }
-//   data = 'There is no matched record in the database'; 
-//   res.contentType('text/html');
-// res.send({'matched':data});
-  res.json(employee);
+  // res.json(employee);
 });
 
 app.get('/all', (req, res) => {

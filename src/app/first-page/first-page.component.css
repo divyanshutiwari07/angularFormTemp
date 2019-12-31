@@ -1,8 +1,15 @@
-.example-container {
+.container {
+  margin-top: 20px;
+
+}
+.footer {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
 }
 
-.example-container > * {
-  width: 100%;
+.card {
+  margin-bottom: 20px;
 }
+
+
+
