@@ -1,0 +1,17 @@
+<div class="container">
+  <h2>database saved info</h2>     
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Password</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = 'let emp of empRecord'>
+        <td > {{ emp.email }} </td >
+        <td> {{ emp.password }} </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
