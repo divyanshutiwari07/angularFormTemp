@@ -22,5 +22,12 @@ export class SecondPageComponent implements OnInit {
   moveToHomePage(){
     this.router.navigateByUrl('/first-page');
   }
+  deleteUser(event) {
+    console.log(event.id);
+    this.apiService.deleteUser({'id': event.id}).subscribe((res) => {
+      console.log('delete', res);
+      this.empRecord = res;
+    });
+  }
 
 }

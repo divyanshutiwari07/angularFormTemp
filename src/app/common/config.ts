@@ -1,4 +1,5 @@
 export const config = {
-  TESTING_URL : 'http://localhost:2000/testing',
-  ALL_DATA_URL : 'http://localhost:2000/all'
-}
+  STORE_INFO_URL : 'http://localhost:3000/storeInfo',
+  ALL_DATA_URL : 'http://localhost:3000/all',
+  DELETE_USER_DATA_URL : 'http://localhost:3000/deleteUser',
+};

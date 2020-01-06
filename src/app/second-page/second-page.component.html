@@ -5,12 +5,14 @@
       <tr>
         <th>Email</th>
         <th>Password</th>
+        <th>Delete</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor = 'let emp of empRecord'>
         <td > {{ emp.email }} </td >
-        <td> {{ emp.password }} </td>
+        <td> {{ emp.pass }} </td>
+        <td> <input type='button' value='Delete User' (click) = 'deleteUser(emp);'> </td>
       </tr>
     </tbody>
   </table>
