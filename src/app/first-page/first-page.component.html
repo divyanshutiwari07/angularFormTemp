@@ -19,13 +19,14 @@
           <label for="exampleInputPassword1">Password</label>
         </div>
         <div class="card-body">
-            <input type="text" class='form-control' name="password" #password="ngModel" [(ngModel)]="loginDetails.password" class="form-control input-underline input-lg"  placeholder="Email"  required >
+            <input type="text" class='form-control' name="password" #password="ngModel" [(ngModel)]="loginDetails.password" class="form-control input-underline input-lg"  placeholder="Password" required >
         </div>
       </div>
     </div>
     
     <div class="footer">
         <button type="submit" class="btn btn-primary">Submit</button>
+        <button (click) = 'moveToSendEmailPage()'  class="btn btn-primary">Send Email</button>
         <button (click) = 'moveToSecondPage()'  class="btn btn-primary">All Record</button>
     </div>
   </form>

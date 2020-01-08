@@ -22,4 +22,15 @@ export class ApiService {
     console.log('api service');
     return this.http.post(config.DELETE_USER_DATA_URL, obj);
   }
+
+  updateEditData(obj) {
+    console.log('api service');
+    return this.http.post(config.UPDATE_USER_DATA_URL, obj);
+  }
+
+  sendEmail(obj) {
+    console.log('api service');
+    return this.http.post(config.SEND_EMAIL_URL, obj);
+  }
+
 }

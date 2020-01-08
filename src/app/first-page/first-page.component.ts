@@ -18,8 +18,14 @@ export class FirstPageComponent implements OnInit {
   moveToSecondPage() {
     this.router.navigateByUrl('/second-page');
   }
+
+  moveToSendEmailPage() {
+    this.router.navigateByUrl('/send-email');
+  }
+
   onSubmit() {
     // console.log('vent', this.loginDetails );
+    // console.log('went', this.empData);
     this.apiService.getServerData(  this.loginDetails).subscribe((res) => { console.log(res); });
     this.loginDetails = {};
   }

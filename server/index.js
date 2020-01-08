@@ -6,6 +6,7 @@ app.use(cors());
 
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
+var nodemailer = require('nodemailer');
 
 var pool      =    mysql.createPool({
     connectionLimit : 100, //important
@@ -51,6 +52,7 @@ app.post("/storeInfo",function(req,res){-
   console.log(req.body);
 });
 
+
 function deleteRow(id, req, res) {
   let deleteQuery = "DELETE from angular_form where ?? = ? ";
   let query = mysql.format(deleteQuery, ['id', id]);
@@ -74,6 +76,70 @@ app.post("/deleteUser",function(req,res){-
   console.log(req.body);
 });
 
+function updateData(id, req, res) {
+  let updateQuery = "UPDATE angular_form SET ?? = ?  WHERE ?? = ?";
+    let query = mysql.format(updateQuery,[,"notes",data.value,"user",data.user]);
+    // query = UPDATE `todo` SET `notes`='Hello' WHERE `name`='shahid'
+    pool.query(query,(err, response) => {
+        if(err) {
+            console.error(err);
+            return;
+        }
+        // rows updated
+        console.log(response.affectedRows);
+    });
+}
+
+app.post("/updateUserData",function(req,res){-
+  updateData(req.body.id, req, res);
+  console.log("=========== BOdy Payload =============");
+  console.log(req.body);
+});
+
+
+// send email
+app.post("/sendEmail",function(req,res){-
+  console.log(req.body);
+  let user = req.body;
+  sendMail(user, (err, info) => {
+    if(err) {
+      console.log( 'err', err);
+      res.send({error: 'failed to send email'});
+    } else {
+      console.log('THE mail has been send ');
+      res.send(info);
+    }
+  });
+  console.log("=========== BOdy Payload =============");
+  console.log(req.body);
+});
+
+async function sendMail(user, callback) {
+  let transporter = nodemailer.createTransport({
+    host:'smtp.gmail.com',
+    port: 587,
+    secure: false, 
+    requireTLS: true,
+    auth: {
+      user: 'sendemailservice131@gmail.com',
+      pass: 'sendemail123'
+    }
+  });
+
+  let mailOptions = {
+    from: 'Disaster',
+    to: user.email,
+    // to: 'divyanshutiwari07@gmail.com',
+    to: user.email,
+    subject: user.subject,
+    html: user.message
+  };
+
+  
+  let info = await transporter.sendMail(mailOptions);
+  callback(info);
+
+}
 
 app.listen(3000, () => {
   console.log("Server is listening on port: 3000");

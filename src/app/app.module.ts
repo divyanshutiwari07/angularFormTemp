@@ -10,12 +10,16 @@ import { MaterialModule } from './common/material/material.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { EditComponent } from './edit/edit.component';
+import { SendEmailComponent } from './send-email/send-email.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FirstPageComponent,
-    SecondPageComponent
+    SecondPageComponent,
+    EditComponent,
+    SendEmailComponent
   ],
   imports: [
     BrowserModule,

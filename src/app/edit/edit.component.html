@@ -1,0 +1,20 @@
+<div class="container">
+  <h2>edit database saved info</h2>     
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Password</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td> <input type='text' name='email' value='email' [(ngModel)]='editData.email' #email="ngModel"> </td>
+        <td> <input type='text' value='password' name = 'password' [(ngModel)] = 'editData.password' #password= 'ngModel'> </td>
+        <td> <input type='button' value='Save'(click) = 'save();'> </td>
+      </tr>
+    </tbody>
+      <tr></tr>
+  </table>
+  <button type="button" (click)='moveToSecondPage();' class="btn btn-primary">Go Back</button>
+</div>
