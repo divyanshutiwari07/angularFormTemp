@@ -1,0 +1,24 @@
+<div class="container">
+  <h2>database saved info</h2>     
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Delete</th>
+        <th>Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = 'let emp of empRecord'>
+      
+        <td > {{ emp.email }} </td >
+        <td> {{ emp.pass }} </td>
+        <td> <input type='button' value='Delete User' (click) = 'deleteUser(emp);'> </td>
+        <td> <input type='button' value='Edit User' (click) = 'updateUserData(emp);'></td>
+      </tr>
+    </tbody>
+    
+  </table>
+  <button type="button" (click)='moveToHomePage();' class="btn btn-primary">Go Back</button>
+</div>

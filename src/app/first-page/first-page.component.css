@@ -1,0 +1,16 @@
+.container {
+  margin-top: 20px;
+
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  margin-bottom: 20px;
+}
+
+
+
+
